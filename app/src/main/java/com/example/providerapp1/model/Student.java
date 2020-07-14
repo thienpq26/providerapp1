@@ -126,6 +126,11 @@ public class Student {
         this.email = email;
     }
 
+    /**
+     * Get information of the student
+     *
+     * @return The information of the student
+     */
     @Override
     public String toString() {
         return "Student{" +

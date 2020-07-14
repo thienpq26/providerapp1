@@ -18,11 +18,22 @@ public class StudentsAdapter extends RecyclerView.Adapter<StudentsAdapter.ViewHo
     List<Student> mList;
     private OnNoteListener onNoteListener;
 
+    /**
+     * The constructor include full parameter of adapter
+     *
+     * @param mList          The list of the student
+     * @param onNoteListener The interface of the adapter to click item recyclerview
+     */
     public StudentsAdapter(List<Student> mList, OnNoteListener onNoteListener) {
         this.mList = mList;
         this.onNoteListener = onNoteListener;
     }
 
+    /**
+     * @param parent   The viewgrop of the adapter
+     * @param viewType The viewtype of the adapter
+     * @return The view of the adapter
+     */
     @NonNull
     @Override
     public ViewHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
@@ -30,6 +41,10 @@ public class StudentsAdapter extends RecyclerView.Adapter<StudentsAdapter.ViewHo
         return new ViewHolder(view, onNoteListener);
     }
 
+    /**
+     * @param holder   The viewholder of the adapter
+     * @param position The position of the item
+     */
     @Override
     public void onBindViewHolder(@NonNull ViewHolder holder, int position) {
         holder.txtId.setText(mList.get(position).getId() + "");
@@ -39,11 +54,17 @@ public class StudentsAdapter extends RecyclerView.Adapter<StudentsAdapter.ViewHo
         holder.txtEmail.setText(mList.get(position).getEmail());
     }
 
+    /**
+     * @return The item count
+     */
     @Override
     public int getItemCount() {
         return mList.size();
     }
 
+    /**
+     * The viewholder of the adapter
+     */
     public class ViewHolder extends RecyclerView.ViewHolder implements View.OnClickListener {
         TextView txtId;
         TextView txtName;
