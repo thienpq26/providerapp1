@@ -14,15 +14,13 @@ public class StudentsProvider extends ContentProvider {
     public static final String AUTHORITY = "com.example.providerapp1.provider.StudentsProvider";
     private StudentManager manager;
     private UriMatcher uriMatcher;
-    private Cursor cursor;
 
     public StudentsProvider() {
     }
 
     @Override
     public int delete(Uri uri, String selection, String[] selectionArgs) {
-        // Implement this to handle requests to delete one or more rows.
-        throw new UnsupportedOperationException("Not yet implemented");
+        return manager.deleteStudentProvider(selection, selectionArgs);
     }
 
     @Override
@@ -48,8 +46,7 @@ public class StudentsProvider extends ContentProvider {
 
     @Override
     public Cursor query(Uri uri, String[] projection, String selection, String[] selectionArgs, String sortOrder) {
-        cursor = manager.getStudentsProvider(projection, selection, selectionArgs, sortOrder);
-        return cursor;
+        return manager.getStudentsProvider(projection, selection, selectionArgs, sortOrder);
     }
 
     @Override

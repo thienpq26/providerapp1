@@ -49,4 +49,8 @@ public class StudentManager {
     public Cursor getStudentsProvider(String[] projection, String selection, String[] selectionArgs, String sortOrder) {
         return mDatabase.query(DatabaseHelper.TABLE_NAME, projection, selection, selectionArgs, null, null, sortOrder);
     }
+
+    public int deleteStudentProvider(String selection, String[] selectionArgs) {
+        return mDatabase.delete(DatabaseHelper.TABLE_NAME, selection, selectionArgs);
+    }
 }

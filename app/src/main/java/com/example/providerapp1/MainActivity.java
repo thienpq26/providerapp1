@@ -6,6 +6,7 @@ import androidx.recyclerview.widget.RecyclerView;
 
 import android.database.Cursor;
 import android.os.Bundle;
+import android.util.Log;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
@@ -45,7 +46,7 @@ public class MainActivity extends AppCompatActivity implements StudentsAdapter.O
         if (cursor.moveToFirst()) {
             do {
                 Student student = new Student(cursor.getInt(0), cursor.getString(1), cursor.getString(2), cursor.getString(3), cursor.getString(4));
-                student.toString();
+                Log.d("D/e", student.toString());
                 //mList.add();
             } while (cursor.moveToNext());
             setAdapter(mList);
